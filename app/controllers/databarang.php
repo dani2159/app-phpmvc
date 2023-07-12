@@ -23,14 +23,23 @@
         }
 
         public function tambahStore() {
-            // if($this->model('databarangModel')->tambahDataBarang($_POST) > 0) {
-            //     header('Location: ' . BASEURL . '/databarang');
-            //     exit;
-            // }
+            if($this->model('databarangModel')->tambahDataBarang($_POST) > 0) {
+                echo "<script>
+                        alert('Data Berhasil Ditambahkan');
+                    </script>";
+                // header('Location: ' . BASEURL . '/databarang');
+                // exit;
+            } else {
+                echo "<script>
+                        alert('Data Gagal Ditambahkan');
+                    </script>";
+                // header('Location: ' . BASEURL . '/databarang');
+                // exit;
+            }
 
-            $this->model('databarangModel')->tambahDataBarang($_POST);
-            header('Location: ' . BASEURL . '/databarang');
-            exit;
+            // $this->model('databarangModel')->tambahDataBarang($_POST);
+            // header('Location: ' . BASEURL . '/databarang');
+            // exit;
 
         }
 

@@ -26,14 +26,13 @@ Class databarangModel {
     }
 
     public function tambahDataBarang($data) {
-        $query = "insert into tb_barang values ('', :nama_barang, :harga, :stok)";
+        $query = "insert into tb_barang values (null, :nama_barang, :harga, :stok)";
         $this->db->query($query);
         $this->db->bind('nama_barang', $data['nama_barang']);
         $this->db->bind('harga', $data['harga']);
         $this->db->bind('stok', $data['stok']);
 
-        return $this->db->execute();
-
-        // return $this->db->rowCount();
+        $this->db->execute();
+        return $this->db->rowCount();
     }
 }
