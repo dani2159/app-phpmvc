@@ -11,8 +11,6 @@ Class databarangModel {
         $query = "SELECT * FROM tb_barang ";
         $this->db->query($query);
         return $this->db->resultSet();
-
-
     }
 
     public function getDetailBarang($id) {
