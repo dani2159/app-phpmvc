@@ -33,4 +33,29 @@ Class databarangModel {
         $this->db->execute();
         return $this->db->rowCount();
     }
+
+    public function updateBarang($data) {
+        $query = "UPDATE tb_barang SET
+                    nama_barang = :nama_barang,
+                    harga = :harga,
+                    stok = :stok
+                WHERE id = :id";
+        $this->db->query($query);
+        $this->db->bind('nama_barang', $data['nama_barang']);
+        $this->db->bind('harga', $data['harga']);
+        $this->db->bind('stok', $data['stok']);
+        $this->db->bind('id', $data['id']);
+
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
+
+    public function deleteBarang($id){
+        $query = "DELETE FROM tb_barang WHERE id = :id";
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
 }
